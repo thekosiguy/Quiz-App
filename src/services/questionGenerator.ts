@@ -49,7 +49,7 @@ export class QuestionGenerator {
         // Logic to generate a question based on the selected topic
         // This is a placeholder implementation
         let image_base64 = null;
-        let image_bytes = null;
+        //let image_bytes = null;
 
         const response = await client.responses.create({
             model: "gpt-4.1",
