@@ -1,4 +1,4 @@
-# Generative AI Quiz Application
+# Generative AI Quiz App
 
 ## Overview
 The Generative AI Quiz Application is an interactive quiz platform that allows users to answer questions across various topics including Maths, History, Geology, Food, Vehicles, and Miscellaneous. The application utilizes generative AI to dynamically generate questions based on the selected topic.
