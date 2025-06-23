@@ -28,7 +28,7 @@ export class QuestionGenerator {
 
             const image = await client.images.generate({
                 model: "gpt-image-1",
-                prompt: `Generate an image for the question "${question}" with a clear and relevant visual representation that never includes the answer or question (no exceptions!).`,
+                prompt: `Generate an image for the question "${question}" with a clear and relevant visual representation without repetition and never illustrates the answer or question (no exceptions!).`,
                 quality: "medium"
             });
 
@@ -53,23 +53,12 @@ export class QuestionGenerator {
 
         const response = await client.responses.create({
             model: "gpt-4.1",
-            input: `Generate the answer for ${question} in the form "Answer : answer." and always provide a brief explanation on a new line without extra formatting for variables and equations.`
+            input: `Generate the answer for ${question} in the form "Answer : answer." and always provide a brief explanation on a new line without formatting for variables and equations.`
         });
-
-        const image = await client.images.generate({
-            model: "gpt-image-1",
-            prompt: `Generate an image for the question "${question}" with a clear and relevant visual representation.`
-        });
-
-        if (image && image.data && Array.isArray(image.data) && image.data.length > 0 && image.data[0].b64_json) {
-            image_base64 = image.data[0].b64_json;
-            //image_bytes = Buffer.from(image_base64, 'base64');
-        }
 
         // Return the output instead of just logging it
         return { 
             response: response.output_text.trim(),
-            image_base64
         };
     }
 
