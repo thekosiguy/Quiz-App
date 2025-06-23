@@ -4,7 +4,7 @@
   "description": "A generative AI-powered quiz application that asks users questions based on various topics.",
   "main": "src/app.ts",
   "scripts": {
-    "start": "ts-node src/app.ts",
+    "start": "npx tsx src/app.ts",
     "build": "tsc",
     "test": "jest"
   },
@@ -19,7 +19,8 @@
     "@types/jest": "^27.0.2",
     "@types/node": "^16.11.7",
     "jest": "^27.0.6",
-    "ts-node": "^10.4.0"
+    "ts-node": "^10.4.0",
+    "tsx": "^4.20.3"
   },
   "author": "Your Name",
   "license": "MIT"
