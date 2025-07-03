@@ -20,7 +20,7 @@ export class QuestionGenerator {
         }
             const response = await client.responses.create({
                 model: "gpt-4.1",
-                input: `Generate a question about ${topic} (omit the following words: question, answer). If the topic is inappropriate, generate a question about 'Miscellaneous' instead and inform the user that the chosen topic was inappropriate therefore Miscellaneous was selected.`
+                input: `Generate a question about ${topic} (omit the following words: question, answer). If the topic is inappropriate or doesn't make sense, generate a question about 'Miscellaneous' instead and inform the user that the chosen topic was inappropriate therefore Miscellaneous was selected.`
             });
 
             let question = response.output_text.trim();
