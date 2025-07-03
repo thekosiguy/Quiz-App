@@ -16,19 +16,18 @@ export class QuestionGenerator {
         //let image_bytes = null;
 
         if (!this.topics.includes(topic)) {
-            //throw new Error(`Topic "${topic}" is not available.`);
-            console.log(`Topic "${topic}" is not in the list.`);
+            //console.log(`Topic "${topic}" is not in the list.`);
         }
             const response = await client.responses.create({
                 model: "gpt-4.1",
-                input: `Generate a question about ${topic} (omit the word question and answer). If the topic is inappropriate, generate a question about 'Miscellaneous' instead and inform the user that the chosen topic was inappropriate therefore Miscellaneous was selected.`
+                input: `Generate a question about ${topic} (omit the following words: question, answer). If the topic is inappropriate, generate a question about 'Miscellaneous' instead and inform the user that the chosen topic was inappropriate therefore Miscellaneous was selected.`
             });
 
             let question = response.output_text.trim();
 
             const image = await client.images.generate({
                 model: "gpt-image-1",
-                prompt: `Generate an image for the question "${question}" with a clear and relevant visual representation without repetition and never illustrates the answer or question (no exceptions!).`,
+                prompt: `Generate an image for the question "${question}" with a clear and relevant visual representation without repetition and never include the answer or question (no exceptions!).`,
                 quality: "medium"
             });
 

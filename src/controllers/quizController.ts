@@ -71,6 +71,7 @@ class QuizController {
                             <input type="text" name="answer" id="answer" required>
                             <button type="submit">Submit</button>
                         </form>
+                        <a href="/"><button>Home</button></a>
                     </div>
                     ${audioControls()}
                 </body>
