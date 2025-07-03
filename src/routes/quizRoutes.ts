@@ -31,7 +31,7 @@ export function setQuizRoutes(app: Express) {
                     <br/>
                     <label>Not a fan of the topics? input one below!</label>
                     <form action="/questions" method="get">
-                        <input type="text" name="topic" placeholder="Topic">
+                        <input type="text" name="topic" placeholder="Topic" required>
                         <button type="submit">Question!</button>
                     </form>
                 </div>
