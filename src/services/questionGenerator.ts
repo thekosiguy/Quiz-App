@@ -13,15 +13,15 @@ export class QuestionGenerator {
         // Logic to generate a question based on the selected topic
         // This is a placeholder implementation
         let image_base64 = null;
-        let image_bytes = null;
+        //let image_bytes = null;
 
         if (!this.topics.includes(topic)) {
             //throw new Error(`Topic "${topic}" is not available.`);
-            console.log(`Topic "${topic}" is not available.`);
-        } else {
+            console.log(`Topic "${topic}" is not in the list.`);
+        }
             const response = await client.responses.create({
                 model: "gpt-4.1",
-                input: `Generate a question about ${topic} (omit the word question and answer).`
+                input: `Generate a question about ${topic} (omit the word question and answer). If the topic is inappropriate, generate a question about 'Miscellaneous' instead and inform the user that the chosen topic was inappropriate therefore Miscellaneous was selected.`
             });
 
             let question = response.output_text.trim();
@@ -43,7 +43,6 @@ export class QuestionGenerator {
                 image_base64
             };
         }
-    }
 
     public async generateAnswer(question: string) {
         // Logic to generate a question based on the selected topic

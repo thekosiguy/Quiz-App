@@ -28,6 +28,12 @@ export function setQuizRoutes(app: Express) {
                         <br><br>
                         <button type="submit">Question!</button>
                     </form>
+                    <br/>
+                    <label>Not a fan of the topics? input one below!</label>
+                    <form action="/questions" method="get">
+                        <input type="text" name="topic" placeholder="Topic">
+                        <button type="submit">Question!</button>
+                    </form>
                 </div>
                 ${audioControls()}
             </body>
